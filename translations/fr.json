@@ -1,0 +1,44 @@
+{
+    "nav": {
+        "about": "À propos",
+        "team": "Équipes",
+        "achievements": "Réalisations",
+        "events": "Événements",
+        "esport": "Esport",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Les Legionnaires",
+        "subtitle": "Équipe d'esport du Cégep de Sainte-Foy"
+    },
+    "about": {
+        "title": "À propos de nous",
+        "description": "Les Legionnaires est l'équipe officielle d'esport du Cégep de Sainte-Foy. Notre mission est de promouvoir l'esport collégial et de développer les talents de nos étudiants.",
+        "achievements": "Nos Réalisations",
+        "league": "Ligue collégiale de sports électroniques",
+        "championship": "Championnat",
+        "place": "place"
+    },
+    "team": {
+        "title": "Nos Équipes",
+        "description": "Découvrez nos équipes compétitives dans différents jeux vidéo.",
+        "games": {
+            "lol": "League of Legends",
+            "valorant": "Valorant",
+            "rocket": "Rocket League",
+            "overwatch": "Overwatch"
+        }
+    },
+    "events": {
+        "title": "Nos Événements",
+        "description": "Restez à l'affût de nos prochains événements et tournois."
+    },
+    "esport": {
+        "title": "Qu'est-ce que l'Esport?",
+        "description": "L'esport est une forme de compétition organisée où les joueurs s'affrontent dans des jeux vidéo. C'est un phénomène mondial qui attire des millions de spectateurs."
+    },
+    "contact": {
+        "title": "Contactez-nous",
+        "email": "dorian.wawzyniak@gmail.com"
+    }
+} 

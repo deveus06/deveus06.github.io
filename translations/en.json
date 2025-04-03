@@ -1,0 +1,44 @@
+{
+    "nav": {
+        "about": "About",
+        "team": "Teams",
+        "achievements": "Achievements",
+        "events": "Events",
+        "esport": "Esports",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "The Legionnaires",
+        "subtitle": "Cégep de Sainte-Foy Esports Team"
+    },
+    "about": {
+        "title": "About Us",
+        "description": "The Legionnaires is the official esports team of Cégep de Sainte-Foy. Our mission is to promote collegiate esports and develop our students' talents.",
+        "achievements": "Our Achievements",
+        "league": "Collegiate Esports League",
+        "championship": "Championship",
+        "place": "place"
+    },
+    "team": {
+        "title": "Our Teams",
+        "description": "Discover our competitive teams in various video games.",
+        "games": {
+            "lol": "League of Legends",
+            "valorant": "Valorant",
+            "rocket": "Rocket League",
+            "overwatch": "Overwatch"
+        }
+    },
+    "events": {
+        "title": "Our Events",
+        "description": "Stay tuned for our upcoming events and tournaments."
+    },
+    "esport": {
+        "title": "What is Esports?",
+        "description": "Esports is a form of organized competition where players compete in video games. It's a global phenomenon that attracts millions of viewers."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "email": "dorian.wawzyniak@gmail.com"
+    }
+} 

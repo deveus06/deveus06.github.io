@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="hero.title">Les Legionnaires - Cégep de Sainte-Foy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Import Three.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- Add Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1 data-translate="hero.title">Les Legionnaires</h1>
+            <nav class="main-nav">
+                <button class="mobile-menu-btn">☰</button>
+                <ul class="nav-links">
+                    <li><a href="#about" data-translate="nav.about">À propos</a></li>
+                    <li><a href="#team" data-translate="nav.team">Équipes</a></li>
+                    <li><a href="#join-us" data-translate="nav.join">Rejoins-nous</a></li>
+                    <li class="dropdown">
+                        <a href="#ligue-collegiale" data-translate="nav.achievements">Réalisations</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#championship-2024">2024</a></li>
+                            <li><a href="#championship-2023">2023</a></li>
+                            <li><a href="#championship-2022">2022</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#events" data-translate="nav.events">Événements</a></li>
+                    <li><a href="#what-is-esports" data-translate="nav.esport">Esport</a></li>
+                    <li><a href="#media-contact" data-translate="nav.contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Three.js canvas container -->
+        <div id="three-container"></div>
+        
+        <!-- Hero Section with Logo -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <img id="logo" src="images/LOGO_Legionnaires-removebg-preview.png" alt="Les Legionnaires Logo">
+                <h2 data-translate="hero.title">Les Legionnaires</h2>
+                <p data-translate="hero.subtitle">Équipe d'esport du Cégep de Sainte-Foy</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 data-translate="about.title">À propos de nous</h2>
+            <p data-translate="about.description">Les Legionnaires est l'équipe officielle d'esport du Cégep de Sainte-Foy. Notre mission est de promouvoir l'esport collégial et de développer les talents de nos étudiants.</p>
+            
+            <h3 data-translate="about.competitive_teams">Nos Équipes Compétitives</h3>
+            <p data-translate="about.competitive_description">Notre équipe participe à diverses compétitions collégiales et représente fièrement notre établissement dans les ligues suivantes:</p>
+            <ul>
+                <li><strong>League of Legends</strong></li>
+                <li><strong>Valorant</strong></li>
+                <li><strong>Overwatch</strong></li>
+            </ul>
+            
+            <h3 data-translate="about.team">Notre Staff</h3>
+            <div class="staff-grid">
+                <div class="staff-category">
+                    <h4 data-translate="about.overwatch">Overwatch</h4>
+                    <div class="staff-members">
+                        <div class="staff-member">
+                            <h5>Marc-Antoine Leblanc</h5>
+                            <p><span data-translate="staff.coach">Entraîneur</span> (<span data-translate="staff.division_1">division 1</span>)</p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2021
+                        </div>
+                        <div class="staff-member">
+                            <h5>Dhary Boutin</h5>
+                            <p><span data-translate="staff.coach">Entraîneur</span> (<span data-translate="staff.division_2">division 2</span>)</p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2024
+                        </div>
+                        <div class="staff-member">
+                            <h5>Samuel Banville</h5>
+                            <p><span data-translate="staff.assistant_coach">Assistant entraîneur</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2022
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4 data-translate="about.league">League of Legends</h4>
+                    <div class="staff-members">
+                        <div class="staff-member">
+                            <h5>Zacharie Tousignant</h5>
+                            <p><span data-translate="staff.head_coach">Entraîneur en chef</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2023
+                        </div>
+                        <div class="staff-member">
+                            <h5>Jean-Gabriel Dufour</h5>
+                            <p><span data-translate="staff.assistant_coach">Assistant entraîneur</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2020
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4 data-translate="about.valorant">Valorant</h4>
+                    <div class="staff-members">
+                        <div class="staff-member">
+                            <h5>Kévin Monffette</h5>
+                            <p><span data-translate="staff.head_coach">Entraîneur en chef</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2024
+                        </div>
+                    </div>
+                </div>
+
+                <div class="staff-category">
+                    <h4 data-translate="about.accompaniment">Accompagnateurs</h4>
+                    <div class="staff-members">
+                        <div class="staff-member">
+                            <h5>Andréanne Turcotte</h5>
+                            <p><span data-translate="staff.coordinator">Coordonnatrice</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2021
+                        </div>
+                        <div class="staff-member">
+                            <h5>François Hamel</h5>
+                            <p><span data-translate="staff.mental_coach">Préparateur mental</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2021
+                        </div>
+                        <div class="staff-member">
+                            <h5>Maxime Turcotte</h5>
+                            <p><span data-translate="staff.recreation_tech">Technicien en loisirs</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2020
+                        </div>
+                        <div class="staff-member">
+                            <h5>Pierre-Luc Dubé</h5>
+                            <p><span data-translate="staff.physical_trainer">Entraîneur physique</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2023
+                        </div>
+                        <div class="staff-member">
+                            <h5>André Gagnon</h5>
+                            <p><span data-translate="staff.manager">Gestionnaire</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2018
+                        </div>
+                        <div class="staff-member">
+                            <h5>Carolyne Maltais</h5>
+                            <p><span data-translate="staff.pedagogical_aid">Aide pédagogique</span></p>
+                            <p class="staff-since" data-translate="team.since">Légionnaire depuis</p> 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 data-translate="about.training">Encadrement et formation</h3>
+            <p data-translate="about.training_description">Tout au long de l'année, nous offrons des ateliers et conférences avec des experts sur des sujets clés comme l'hygiène de vie, la prévention de la cyberdépendance, l'ergonomie, et la place des femmes dans le sport électronique. Ces initiatives visent à assurer le bien-être de nos joueurs et joueuses tout en favorisant leur succès dans un environnement sain et inclusif.</p>
+        </section>
+        
+        <!-- Ligue collégiale section -->
+        <section id="ligue-collegiale" class="ligue-collegiale">
+            <h2 data-translate="league.title">LIGUE COLLÉGIALE DE SPORTS ÉLECTRONIQUES</h2>
+            <div class="championship" id="championship-2024">
+                <h3 data-translate="league.championship2024">Championnat 2024</h3>
+                <div class="championship-results">
+                    <div class="championship-item"><span data-translate="league.first_place">1ère place</span> - League of Legends (<span data-translate="league.division">division</span> 1)</div>
+                    <div class="championship-item"><span data-translate="league.first_place">1ère place</span> - Overwatch (<span data-translate="league.division">division</span> 1)</div>
+                    <div class="championship-item"><span data-translate="league.third_place">3e place</span> - League of Legends (<span data-translate="league.division">division</span> 4)</div>
+                </div>
+            </div>
+            
+            <div class="championship" id="championship-2023">
+                <h3 data-translate="league.championship2023">Championnat 2023</h3>
+                <div class="championship-results">
+                    <div class="championship-item"><span data-translate="league.second_place">2e place</span> - Overwatch (<span data-translate="league.division">division</span> 3)</div>
+                    <div class="championship-item"><span data-translate="league.second_place">2e place</span> - League of Legends (<span data-translate="league.division">division</span> 3)</div>
+                    <div class="championship-item"><span data-translate="league.third_place">3e place</span> - Rocket League</div>
+                </div>
+            </div>
+            
+            <div class="championship" id="championship-2022">
+                <h3 data-translate="league.championship2022">Championnat 2022</h3>
+                <div class="championship-results">
+                    <div class="championship-item"><span data-translate="league.first_place">1ère place</span> - League of Legends (<span data-translate="league.division">division</span> 1)</div>
+                </div>
+            </div>
+            
+            <!-- Press conference video -->
+            <div class="press-conference">
+                <h5 data-translate="league.press_conference">Conférence de presse - 2023</h5>
+                <div class="video-container">
+                    <iframe 
+                        width="100%" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/Njf6v0aTKqs" 
+                        title="Press Conference - 2023" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="join-us" class="join-us">
+            <h2 data-translate="join.title">Les sélections</h2>
+            
+            <div class="join-us-container">
+                <div class="join-info">
+                    <div class="join-card">
+                        <h3 data-translate="join.registrations">Inscriptions</h3>
+                        <p data-translate="join.selection_dates">Du 13 au 27 janvier 2025</p>
+                    </div>
+                    
+                    <div class="join-card">
+                        <h3 data-translate="join.selection_night">Soirée de sélection</h3>
+                        <p data-translate="join.overwatch_date">Overwatch II : Lundi 27 janvier, 18h30</p>
+                        <p data-translate="join.lol_date">League of Legends : Jeudi 30 janvier, 18h30</p>
+                        <p data-translate="join.valorant_date">Valorant : Mardi 28 janvier, 18h30</p>
+                    </div>
+                    
+                    <div class="join-card">
+                        <h3 data-translate="join.costs">Coûts</h3>
+                        <p data-translate="join.costs_fall">À l'automne : 20$ + taxes pour les sélections (non-remboursable), 305$ + taxes pour l'année (total = 325$ + taxes)</p>
+                        <p data-translate="join.costs_winter">À l'hiver : 20$ + taxes pour les sélections (non-remboursable), 142,50$ + taxes pour la session (total = 162,50$ + taxes)</p>
+                    </div>
+                    
+                    <div class="join-card">
+                        <h3 data-translate="join.more_info">Plus d'info :</h3>
+                        <p data-translate="join.contact">Maxime Turcotte</p>
+                        <p data-translate="join.office">Bureau C-130</p>
+                        <p data-translate="join.email">maxturcotte@csfoy.ca</p>
+                    </div>
+                </div>
+                
+                <div class="game-schedules">
+                    <!-- League of Legends Schedule -->
+                    <div class="game-schedule">
+                        <div class="game-logo">
+                            <img src="images/csm_league-of-legends-logo_lol_7436cab09a.png" alt="League of Legends">
+                        </div>
+                        <div class="schedule-info">
+                            <h4>League of Legends</h4>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.practices">Pratiques</h5>
+                                <ul>
+                                    <li data-translate="join.wednesday_practice">Mercredis 18h30 à 21h30, en présence</li>
+                                    <li data-translate="join.thursday_practice">Jeudis 18h30 à 21h30, à distance</li>
+                                </ul>
+                            </div>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.match">Match</h5>
+                                <p data-translate="join.monday_match">Lundis 19h, à distance</p>
+                            </div>
+                            <a href="https://forms.gle/ExampleLOLForm" class="register-btn">
+                                <span data-translate="join.register">Inscris-toi à</span> LOL
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Overwatch Schedule -->
+                    <div class="game-schedule">
+                        <div class="game-logo">
+                            <img src="images/csm_Overwatch_circle_logo.svg_a717cfaf35.png" alt="Overwatch">
+                        </div>
+                        <div class="schedule-info">
+                            <h4>Overwatch</h4>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.practices">Pratiques</h5>
+                                <ul>
+                                    <li data-translate="join.monday_practice">Lundis 18h30 à 21h30, à distance</li>
+                                    <li data-translate="join.wednesday_practice">Mercredis 18h30 à 21h30, en présence</li>
+                                </ul>
+                            </div>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.match">Match</h5>
+                                <p data-translate="join.tuesday_match">Mardis 19h, à distance</p>
+                            </div>
+                            <a href="https://forms.gle/ExampleOWForm" class="register-btn">
+                                <span data-translate="join.register">Inscris-toi à</span> OW
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Valorant Schedule -->
+                    <div class="game-schedule">
+                        <div class="game-logo">
+                            <img src="images/csm_Logo_square_Valorant_dad506bbd2.png" alt="Valorant">
+                        </div>
+                        <div class="schedule-info">
+                            <h4>Valorant</h4>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.practices">Pratiques</h5>
+                                <ul>
+                                    <li data-translate="join.monday_practice">Lundis 18h30 à 21h30, à distance</li>
+                                    <li data-translate="join.wednesday_practice">Mercredis 18h30 à 21h30, en présence</li>
+                </ul>
+                            </div>
+                            <div class="schedule-item">
+                                <h5 data-translate="join.match">Match</h5>
+                                <p data-translate="join.thursday_match">Jeudis 19h, à distance</p>
+                            </div>
+                            <a href="https://forms.gle/ExampleValoForm" class="register-btn">
+                                <span data-translate="join.register">Inscris-toi à</span> Valo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <h2 data-translate="team.title">Nos équipes</h2>
+            <p>Rencontrez nos joueurs talentueux qui participent à divers tournois.</p>
+            
+            <!-- Card Packs Section -->
+            <section class="card-packs">
+                <!-- Valorant Pack -->
+                <div class="card-pack">
+                    <h2>Valorant</h2>
+                    <button class="open-pack-btn">Voir</button>
+                    <!-- Existing Cards -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">James Smith</div>
+                                <div class="player-nickname" data-text="PHOENIX">PHOENIX</div>
+                                <div class="player-role">DUELIST</div>
+                                <div class="player-description">Aggressive entry fragger with exceptional aim and game sense.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>James "Phoenix" Smith</h3>
+                                    <p class="player-role">Duelist</p>
+                                    <p class="player-description">Aggressive entry fragger with exceptional aim and game sense.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Sarah Chen</div>
+                                <div class="player-nickname" data-text="VIPER">VIPER</div>
+                                <div class="player-role">CONTROLLER</div>
+                                <div class="player-description">Master of area control and post-plant scenarios.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Sarah "Viper" Chen</h3>
+                                    <p class="player-role">Controller</p>
+                                    <p class="player-description">Master of area control and post-plant scenarios.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Valorant Cards -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Michael Park</div>
+                                <div class="player-nickname" data-text="SENTINEL">SENTINEL</div>
+                                <div class="player-role">SENTINEL</div>
+                                <div class="player-description">Site anchor specialist with impeccable game awareness.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Michael "Sentinel" Park</h3>
+                                    <p class="player-role">Sentinel</p>
+                                    <p class="player-description">Site anchor specialist with impeccable game awareness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Emma Wilson</div>
+                                <div class="player-nickname" data-text="FLASH">FLASH</div>
+                                <div class="player-role">INITIATOR</div>
+                                <div class="player-description">Information gathering expert and flash specialist.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Emma "Flash" Wilson</h3>
+                                    <p class="player-role">Initiator</p>
+                                    <p class="player-description">Information gathering expert and flash specialist.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Lucas Rodriguez</div>
+                                <div class="player-nickname" data-text="CLUTCH">CLUTCH</div>
+                                <div class="player-role">DUELIST</div>
+                                <div class="player-description">Clutch specialist with incredible mechanical skills.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Lucas "Clutch" Rodriguez</h3>
+                                    <p class="player-role">Duelist</p>
+                                    <p class="player-description">Clutch specialist with incredible mechanical skills.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- League of Legends Pack -->
+                <div class="card-pack">
+                    <h2>League of Legends</h2>
+                    <button class="open-pack-btn">Voir</button>
+                    <!-- Existing Cards -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Alex Chen</div>
+                                <div class="player-nickname" data-text="SHADOW">SHADOW</div>
+                                <div class="player-role">MID LANER</div>
+                                <div class="player-description">Master of the mid lane, known for exceptional map control.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Alex "Shadow" Chen</h3>
+                                    <p class="player-role">Mid Laner</p>
+                                    <p class="player-description">Master of assassins and control mages.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Marcus Lee</div>
+                                <div class="player-nickname" data-text="DRAGON">DRAGON</div>
+                                <div class="player-role">JUNGLER</div>
+                                <div class="player-description">Objective control specialist with exceptional pathing.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Marcus "Dragon" Lee</h3>
+                                    <p class="player-role">Jungler</p>
+                                    <p class="player-description">Objective control specialist with exceptional pathing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New LoL Cards -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Sophie Martin</div>
+                                <div class="player-nickname" data-text="GUARDIAN">GUARDIAN</div>
+                                <div class="player-role">SUPPORT</div>
+                                <div class="player-description">Vision control master and team playmaker.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Sophie "Guardian" Martin</h3>
+                                    <p class="player-role">Support</p>
+                                    <p class="player-description">Vision control master and team playmaker.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Thomas Anderson</div>
+                                <div class="player-nickname" data-text="CARRY">CARRY</div>
+                                <div class="player-role">ADC</div>
+                                <div class="player-description">Late game specialist with perfect positioning.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Thomas "Carry" Anderson</h3>
+                                    <p class="player-role">ADC</p>
+                                    <p class="player-description">Late game specialist with perfect positioning.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Oliver Kim</div>
+                                <div class="player-nickname" data-text="ROCK">ROCK</div>
+                                <div class="player-role">TOP LANER</div>
+                                <div class="player-description">Split push expert and team's solid foundation.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Oliver "Rock" Kim</h3>
+                                    <p class="player-role">Top Laner</p>
+                                    <p class="player-description">Split push expert and team's solid foundation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overwatch Pack -->
+                <div class="card-pack">
+                    <h2>Overwatch</h2>
+                    <button class="open-pack-btn">Voir</button>
+                    <!-- Existing Card -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Sarah Martinez</div>
+                                <div class="player-nickname" data-text="HEALER">HEALER</div>
+                                <div class="player-role">SUPPORT</div>
+                                <div class="player-description">Elite support player with perfect positioning.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Sarah "Healer" Martinez</h3>
+                                    <p class="player-role">Support</p>
+                                    <p class="player-description">Elite support player with perfect positioning.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Overwatch Cards -->
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">David Wang</div>
+                                <div class="player-nickname" data-text="TANK">TANK</div>
+                                <div class="player-role">TANK</div>
+                                <div class="player-description">Space creator and team protector.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>David "Tank" Wang</h3>
+                                    <p class="player-role">Tank</p>
+                                    <p class="player-description">Space creator and team protector.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Emily Taylor</div>
+                                <div class="player-nickname" data-text="SNIPER">SNIPER</div>
+                                <div class="player-role">DPS</div>
+                                <div class="player-description">Long-range specialist with deadly accuracy.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Emily "Sniper" Taylor</h3>
+                                    <p class="player-role">DPS</p>
+                                    <p class="player-description">Long-range specialist with deadly accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Ryan Cooper</div>
+                                <div class="player-nickname" data-text="FLEX">FLEX</div>
+                                <div class="player-role">FLEX</div>
+                                <div class="player-description">Versatile player mastering multiple roles.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Ryan "Flex" Cooper</h3>
+                                    <p class="player-role">Flex</p>
+                                    <p class="player-description">Versatile player mastering multiple roles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Lisa Park</div>
+                                <div class="player-nickname" data-text="MERCY">MERCY</div>
+                                <div class="player-role">SUPPORT</div>
+                                <div class="player-description">Main healer with exceptional target prioritization.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Lisa "Mercy" Park</h3>
+                                    <p class="player-role">Support</p>
+                                    <p class="player-description">Main healer with exceptional target prioritization.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-card">
+                        <div class="card-front">
+                            <div class="card-content">
+                                <div class="player-real-name">Kevin Zhang</div>
+                                <div class="player-nickname" data-text="RUSH">RUSH</div>
+                                <div class="player-role">DPS</div>
+                                <div class="player-description">Aggressive flanker with high mobility.</div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <div class="player-info">
+                                    <h3>Kevin "Rush" Zhang</h3>
+                                    <p class="player-role">DPS</p>
+                                    <p class="player-description">Aggressive flanker with high mobility.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section id="events">
+            <h2 data-translate="events.title">Prochains Evenements</h2>
+            <h3 data-translate="events.lan_title">LAN CSF 3e édition</h3>
+            <p data-translate="events.lan_date">16 au 18 janvier 2026</p>
+            <p data-translate="events.description">Le LAN CSF revient pour une deuxième édition, offrant une expérience de sports électroniques unique en son genre dans la région de Québec. Cet événement immersif, convivial et ouvert au public est l'occasion pour les personnes passionnées de jeux vidéo de se rencontrer, de partager leur passion et de vivre l'intensité de la compétition en personne, au cœur de notre établissement.</p>
+        </section>
+        <section id="media-contact">
+            <h2 data-translate="media.title">Media & Contact</h2>
+            <div class="media-grid">
+                <!-- Social Media Links -->
+                <div class="media-card">
+                    <i class="fab fa-twitch"></i>
+                    <h3>Twitch</h3>
+                    <p data-translate="social.twitch">Regardez nos streams en direct</p>
+                    <a href="https://www.twitch.tv/leslegionnairescsfoy" target="_blank" class="media-link">Follow Us</a>
+                </div>
+
+                <div class="media-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p data-translate="social.discord">Rejoignez notre communauté</p>
+                    <a href="https://discord.gg/leslegionnaires" target="_blank" class="media-link">Join Server</a>
+                </div>
+
+                <div class="media-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p data-translate="social.instagram">Suivez notre parcours</p>
+                    <a href="https://www.instagram.com/leslegionnairescsfoy" target="_blank" class="media-link">Follow Us</a>
+                </div>
+
+                <div class="media-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p data-translate="social.facebook">Restez informés</p>
+                    <a href="https://www.facebook.com/leslegionnairescsfoy" target="_blank" class="media-link">Like Page</a>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3 data-translate="media.contact_us">Contactez-nous</h3>
+                    <p><i class="fas fa-office"></i> <span data-translate="media.office">Bureau</span> C-130</p>
+                    <p><i class="fas fa-envelope"></i> maxturcotte@csfoy.ca</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3 data-translate="media.general_contact">General Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 2410, chemin Sainte-Foy, Québec (QC) G1V 1T3</p>
+                    <p><i class="fas fa-door-closed"></i> <span data-translate="media.location">Local</span> C-120</p>
+                    <p><i class="fas fa-phone"></i> 418 659-6600, <span data-translate="media.phone">poste</span> 3545</p>
+                    <p><i class="fas fa-envelope"></i> socio@csfoy.ca</p>
+                </div>
+            </div>
+        </section>
+        <section id="what-is-esports">
+            <h2 data-translate="esport.title">Qu'est-ce que l'Esport ?</h2>
+            <div class="esports-grid">
+                <div class="esports-card">
+                    <div class="esports-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 data-translate="esport.electronic_sport">Sport Électronique</h3>
+                    <p data-translate="esport.electronic_sport_desc">L'esport est une compétition organisée de jeux vidéo où les joueurs s'affrontent dans des tournois professionnels, avec des règles strictes et une structure similaire aux sports traditionnels.</p>
+                </div>
+                <div class="esports-card">
+                    <div class="esports-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 data-translate="esport.professional_competition">Compétition Professionnelle</h3>
+                    <p data-translate="esport.professional_competition_desc">Les joueurs professionnels s'entraînent quotidiennement, développent des stratégies complexes et participent à des tournois internationaux avec des prix pouvant atteindre des millions de dollars.</p>
+                </div>
+                <div class="esports-card">
+                    <div class="esports-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-translate="esport.global_community">Communauté Mondiale</h3>
+                    <p data-translate="esport.global_community_desc">Avec des millions de spectateurs en ligne et des stades remplis, l'esport crée une communauté mondiale passionnée, unissant les joueurs et les fans à travers le monde.</p>
+                </div>
+                <div class="esports-card">
+                    <div class="esports-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 data-translate="esport.academic_recognition">Reconnaissance Académique</h3>
+                    <p data-translate="esport.academic_recognition_desc">De plus en plus d'établissements d'enseignement reconnaissent l'esport comme une discipline à part entière, offrant des bourses et des programmes dédiés aux joueurs talentueux.</p>
+                </div>
+            </div>
+            <div class="esports-stats">
+                <div class="stat-item">
+                    <span class="stat-number">500M+</span>
+                    <span class="stat-label" data-translate="esport.global_viewers">Spectateurs Mondiaux</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$1.5B</span>
+                    <span class="stat-label" data-translate="esport.global_market">Marché Global</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label" data-translate="esport.participating_countries">Pays Participants</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-translate="contact.email">dorian.wawzyniak@gmail.com</p>
+    </footer>
+
+    <!-- Import our custom Three.js animation script -->
+    <script src="js/translations.js" defer></script>
+    <script src="js/animations.js" defer></script>
+</body>
+</html>
