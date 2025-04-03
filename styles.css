@@ -1449,3 +1449,34 @@ footer {
         padding: 1rem;
     }
 }
+
+/* Direct Font Awesome fixes */
+.fab, .fas {
+    font-family: "Font Awesome 6 Free" !important;
+    display: inline-block;
+}
+
+.fab {
+    font-family: "Font Awesome 6 Brands" !important;
+}
+
+.fa-3x {
+    font-size: 3em !important;
+}
+
+/* Media/Contact section responsive fixes */
+@media screen and (max-width: 768px) {
+    .media-card i {
+        font-size: 2rem !important;
+    }
+    
+    .esports-icon i {
+        font-size: 2rem !important;
+    }
+    
+    .contact-card p i {
+        width: 20px;
+        text-align: center;
+        margin-right: 8px;
+    }
+}
