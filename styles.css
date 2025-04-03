@@ -576,13 +576,15 @@ footer {
 }
 
 .media-card .fab {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    line-height: 1;
     border-radius: 50%;
     background: rgba(66, 99, 235, 0.1);
-    margin-bottom: 15px;
+    margin: 0 auto 15px;
 }
 
 .media-card h3 {
@@ -1595,4 +1597,40 @@ footer {
         text-align: center;
         margin-right: 8px;
     }
+}
+
+/* Media card icon fixes */
+.media-card .fab {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 60px !important;
+    height: 60px !important;
+    line-height: 1 !important;
+    margin: 0 auto 15px !important;
+}
+
+/* Specific adjustments for Discord and Twitch */
+.fa-discord, .fa-twitch {
+    transform: translateY(0); /* Reset any default transform */
+    position: relative;
+    top: auto;
+    left: auto;
+}
+
+/* Specific spacing for each icon to visually center */
+.fa-discord {
+    margin: 0;
+}
+
+.fa-twitch {
+    margin: 0;
+}
+
+.fa-instagram {
+    margin: 0;
+}
+
+.fa-facebook-f {
+    margin: 0;
 }
